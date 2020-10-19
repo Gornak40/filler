@@ -57,11 +57,25 @@ void putLine(RenderWindow &window, int x1, int y1, int x2, int y2, Color color=C
 }
 //
 
-// drawing main
-void buildSquares(RenderWindow &window) {
+/*void _buildSquares(RenderWindow &window) {
 	for (int i = 0; i < W; i += P)
 		putLine(window, i, 0, i, H - 1);
 	for (int j = 0; j < H; j += P)
+		putLine(window, 0, j, W - 1, j);
+	Color color = Color::Red;
+	putLine(window, 0, H / 2, W - 1, H / 2, color);
+	putLine(window, W / 2, 0, W / 2, H - 1, color);
+}*/
+
+// drawing main
+void buildSquares(RenderWindow &window) {
+	for (int i = W / 2; i >= 0; i -= P)
+		putLine(window, i, 0, i, H - 1);
+	for (int i = W / 2; i < W; i += P)
+		putLine(window, i, 0, i, H - 1);
+	for (int j = H / 2; j >= 0; j -= P)
+		putLine(window, 0, j, W - 1, j);
+	for (int j = H / 2; j < H; j += P)
 		putLine(window, 0, j, W - 1, j);
 	Color color = Color::Red;
 	putLine(window, 0, H / 2, W - 1, H / 2, color);
